@@ -96,7 +96,7 @@ while True:
 			print('runTime = %.1f' %runTime)
 			print('distance = %.1f' %distance)
 
- 			break
+			break
 
 	print('=================================')
 	print(showtime)
