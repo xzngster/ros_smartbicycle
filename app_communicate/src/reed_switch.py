@@ -42,7 +42,7 @@ st3 = int(st3)
 
 while True:
 	reading=analog_read(1)
-	voltage=reading*3.3/1024
+	#voltage=reading*3.3/1024
     	#print(reading)
 	time.sleep(0.01)
 	showtime= time.strftime('%H : %M : %S')
@@ -98,10 +98,6 @@ while True:
  			break
 
 	print('=================================')
-	print(ckCheck)
-	print(uckCheck)
-	print(voltage)
- 
 	print(showtime)
 	print('speed = %.1f' %runSpeed)
 	print('runTime = %.1f' %allTime)
