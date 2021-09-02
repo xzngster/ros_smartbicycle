@@ -20,6 +20,9 @@ def soundplay():
         if idx > -1: # 위험신호가 있으면
                 playsound(SOUNDFILE+FILENAME[idx]+str(min_dist)+"m.wav") # 사운드 출력
                 print(FILENAME[idx] + " sound is activated, dist :", min_dist) # 터미널에 사운드 출력 표시
+                for i in range(5):
+                        if warning[i] > warning[idx]: # 현재 위험신호보다 낮은 단계의 위험신호일 경우
+                                warning[i]=0 # 그 위험신호를 무시한다
                 warning[idx] = 0 # 위험신호 초기화
         chk = True # 소리출력 끝
 

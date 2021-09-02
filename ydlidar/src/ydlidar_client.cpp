@@ -8,9 +8,9 @@
 #include <vector>
 #include <deque>
 #define DEQUE_SIZE 3 // deque 크기 설정 : 0.125초 단위로 갱신
-#define MIN_SPEED 0.7 // 속도 감지 역치
-#define SPEED_MUL 0.5
-#define SPEED_ADD 10
+#define MIN_SPEED 0.5 // 속도 감지 역치
+#define SPEED_MUL 0.1
+#define SPEED_ADD 25 // 시속 약 90km
 #define DIV 3 // 몇 도 단위로 데이터를 기록할 것인가
 #define SIZE 360/DIV // 나누어진 각도 단위
 #define DIR 5 // 구간 나누기 : 좌측, 좌측 후방, 후방 정면, 우측 후방, 우측
