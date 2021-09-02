@@ -8,9 +8,9 @@
 #include <vector>
 #include <deque>
 #define DEQUE_SIZE 3 // deque 크기 설정 : 0.125초 단위로 갱신
-#define SPEED 0.7 // 속도 감지 역치
-#define MIN_SPEED_MUL 0.2
-#define MAX_SPEED_MUL 0.5
+#define MIN_SPEED 0.7 // 속도 감지 역치
+#define SPEED_MUL 0.5
+#define SPEED_ADD 10
 #define DIV 3 // 몇 도 단위로 데이터를 기록할 것인가
 #define SIZE 360/DIV // 나누어진 각도 단위
 #define DIR 5 // 구간 나누기 : 좌측, 좌측 후방, 후방 정면, 우측 후방, 우측
@@ -95,7 +95,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
             if (ang_tmp >= 0 && ang_tmp < 270) {
                 ang_tmp /= 270/DIR;
                 for (int j=0; j<DIST; j++){
-                    if (ang_vel[i] > SPEED + j*MIN_SPEED_MUL && ang_vel[i] < SPEED + 1 + j*MAX_SPEED_MUL && mn_dist[i] < j + 1.5 && mn_dist[i] > j-0.5) { // 속도 및 거리 걸러내기
+                    if (ang_vel[i] > MIN_SPEED + j*SPEED_MUL && ang_vel[i] < MIN_SPEED + SPEED_ADD + j*SPEED_MUL && mn_dist[i] < j + 1.5 && mn_dist[i] > j-0.5) { // 속도 및 거리 걸러내기
                         dir[ang_tmp][j]++;
                         //printf("방향 : %d, 거리 : %f, 속도 : %f, 가속도 : %f\n", ang_tmp, mn_dist[i], ang_vel[i], ang_acl[i]);
                     }
